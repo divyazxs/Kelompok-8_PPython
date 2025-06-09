@@ -2,5 +2,4 @@ pandas==2.2.3
 numpy==2.2.2
 plotly.express 
 streamlit
-calendar
 pip==24.3.1
