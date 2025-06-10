@@ -242,6 +242,14 @@ fig_line.update_traces(
     line=dict(width=3),
     marker=dict(size=10, symbol='circle', line=dict(width=2, color='#0f1116'))
 )
+if metric == "Revenue":
+    fig_line.update_traces(
+    hovertemplate='Periode=%{x}<br>Pendapatan (€) = %{y:.2s}<extra></extra>'
+    )
+else:  # Total Booking
+    fig_line.update_traces(
+    hovertemplate='Periode=%{x}<br>Total Booking = %{y:,.0f}<extra></extra>'
+    )
 
 # === CHART 2: DONUT ===
 hotel_type = filtered_df.groupby('hotel').agg({value_col: agg_func}).reset_index()
@@ -261,6 +269,14 @@ fig_donut.update_traces(
     textfont_size=18,  # Increased from 14 to 18 for better readability
     marker=dict(line=dict(color='#0f1116', width=2))
 )
+if metric == "Revenue":
+    fig_donut.update_traces(
+    hovertemplate='Type Hotel = %{label}<br>Revenue (€) = %{value:.2s}<extra></extra>'
+    )
+else:  # Total Booking
+    fig_donut.update_traces(
+    hovertemplate='Type Hotel = %{label}<br>Total Booking = %{value:,.0f}<extra></extra>'
+    )
 fig_donut.update_layout(
     paper_bgcolor='rgba(0,0,0,0)',
     height=600,  # Increased from 500 to 600 for larger size
