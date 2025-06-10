@@ -284,7 +284,7 @@ fig_donut.update_layout(
 )
 
 # === DISPLAY TOP CHARTS ===
-col1, col2 = st.columns([2, 11])  
+col1, col2 = st.columns([2, 1])  
 with col1:
     st.plotly_chart(fig_line, use_container_width=True, theme=None)
 with col2:
