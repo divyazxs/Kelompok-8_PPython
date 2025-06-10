@@ -284,7 +284,7 @@ fig_donut.update_layout(
 )
 
 # === DISPLAY TOP CHARTS ===
-col1, col2 = st.columns([1.5, 1.5])  # Changed from [2, 1] to [1.5, 1.5] for balanced enlargement
+col1, col2 = st.columns([2, 11])  
 with col1:
     st.plotly_chart(fig_line, use_container_width=True, theme=None)
 with col2:
@@ -324,6 +324,14 @@ fig_bubble.update_traces(
     textposition='middle center',
     textfont=dict(size=14, color='#FFFFFF')
 )
+if metric == "Revenue":
+    fig_bubble.update_traces(
+    hovertemplate='Country = %{hovertext}<br>Revenue (€) = %{marker.size:.2s}<extra></extra>'
+    )
+else:  # Total Booking
+    fig_bubble.update_traces(
+    hovertemplate='Country = %{hovertext}<br>Total Booking = %{marker.size:,.0f}<extra></extra>'
+    )
 
 # === CHART 4: MARKET SEGMENT BAR ===
 segment_data = (
